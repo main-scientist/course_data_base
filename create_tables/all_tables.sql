@@ -27,11 +27,11 @@ create table shop.delivery_systems (
 
 create table shop.delivery (
     uuid binary(16) PRIMARY KEY,
-    type int,
+    delivery_system int,
     postcode varchar(32),
     city varchar(32),
     address varchar(32),
-    FOREIGN KEY (type) references shop.delivery_systems(id)
+    FOREIGN KEY (delivery_system) references shop.delivery_systems(id)
 );
 
 
@@ -66,6 +66,7 @@ create table shop.sellers (
     name_of_shop varchar(32),
     email varchar(32),
     phone varchar(32),
+    country varchar(32),
     city varchar(32),
     address varchar(32),
     postcode varchar(32),

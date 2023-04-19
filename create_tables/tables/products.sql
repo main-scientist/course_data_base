@@ -8,7 +8,7 @@ create table shop.products (
     cost float,
     amount_of int,
     code varchar(16),
-    date_add datetime,
+    create_at datetime,
     rating float,
     FOREIGN KEY (category_id) references shop.categories(id),
     FOREIGN KEY (seller_id) references shop.sellers(uuid)
