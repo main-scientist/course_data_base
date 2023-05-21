@@ -6,7 +6,6 @@ use shop;
 # VALUES (uuid(), '{{firstname}}', '{{surname}}', '{{company}}', '{{email}}', '{{tel}}', '{{city}}', '{{street}}', '{{postcode}}', {{prime 1 100}}, {{price 100 20000}}, {{prime 1 10}}, {{country}});
 
 
-
 INSERT INTO sellers (uuid, name, surname, name_of_shop, email, phone, city, address, postcode, amount_of_sales, cost_of_sales, rating, country)
 VALUES (uuid(), 'Kathey', 'Pratt', 'Karl ', 'selina_lofton-rainey49@willow.com', '+264-7717-445-254', 'Nashua', '7685 Crow', 'LL2 9TF', 53, 4287.88, 2, 'San Marino'),
        (uuid(), 'Alaina', 'Ray', 'Lab Software Corp', 'lien-piazza68@tap.com', '+40-5045-421-158', 'Costa Mesa', '9608 Turf', 'NE78 7BI', 37, 3697.88, 5, 'Tuvalu'),

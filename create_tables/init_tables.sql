@@ -1,8 +1,9 @@
 use shop;
 
 
+#todo done
 create table shop.customers (
-    uuid binary(16) PRIMARY KEY,
+    uuid varchar(36) PRIMARY KEY,
     name varchar(32),
     surname varchar(32),
     email varchar(64),
@@ -18,6 +19,7 @@ create table shop.customers (
 );
 
 
+#todo done
 create table shop.delivery_systems (
     id int auto_increment PRIMARY KEY,
     name varchar(16),
@@ -25,8 +27,9 @@ create table shop.delivery_systems (
 );
 
 
+#todo done
 create table shop.delivery (
-    uuid binary(16) PRIMARY KEY,
+    uuid varchar(36) PRIMARY KEY,
     delivery_system int,
     postcode varchar(32),
     city varchar(32),
@@ -35,6 +38,7 @@ create table shop.delivery (
 );
 
 
+#todo done
 create table shop.payment_systems (
     id int auto_increment PRIMARY KEY,
     type varchar(16),
@@ -42,10 +46,11 @@ create table shop.payment_systems (
 );
 
 
+#todo done
 create table shop.orders (
-    uuid binary(16) PRIMARY KEY,
-    customer_id binary(16),
-    delivery_id binary(16),
+    uuid varchar(36) PRIMARY KEY,
+    customer_id varchar(36),
+    delivery_id varchar(36),
     date datetime,
     cost int(16),
     FOREIGN KEY (customer_id) references shop.customers(uuid),
@@ -53,18 +58,20 @@ create table shop.orders (
 );
 
 
+#todo done
 create table shop.categories (
     id int auto_increment PRIMARY KEY,
     name varchar(16)
 );
 
 
+#todo done
 create table shop.sellers (
-    uuid binary(16) PRIMARY KEY,
+    uuid varchar(36) PRIMARY KEY,
     name varchar(32),
     surname varchar(32),
-    name_of_shop varchar(32),
-    email varchar(32),
+    name_of_shop varchar(128),
+    email varchar(64),
     phone varchar(32),
     country varchar(32),
     city varchar(32),
@@ -76,11 +83,12 @@ create table shop.sellers (
 );
 
 
+#todo done
 create table shop.products (
-    uuid binary(16) PRIMARY KEY,
+    uuid varchar(36) PRIMARY KEY,
     name varchar(16),
     category_id int,
-    seller_id binary(16),
+    seller_id varchar(36),
     cost float,
     amount_of int,
     code varchar(16),
@@ -91,20 +99,22 @@ create table shop.products (
 );
 
 
+#todo done
 create table shop.orders_products (
-    uuid binary(16) PRIMARY KEY,
-    orders_id binary(16),
-    product_id binary(16),
+    uuid varchar(36) PRIMARY KEY,
+    orders_id varchar(36),
+    product_id varchar(36),
     FOREIGN KEY (orders_id) references shop.orders(uuid),
     FOREIGN KEY (product_id) references shop.products(uuid)
 );
 
 
+
 create table shop.invoices (
-    uuid binary(16) PRIMARY KEY,
-    customer_id binary(16),
-    seller_id binary(16),
-    order_id binary(16),
+    uuid varchar(36) PRIMARY KEY,
+    customer_id varchar(36),
+    seller_id varchar(36),
+    order_id varchar(36),
     create_at datetime,
     cost float,
     cost_tax float,

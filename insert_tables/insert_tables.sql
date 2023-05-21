@@ -26,8 +26,3 @@ INSERT INTO shop.categories(name)
            ('furniture'),
            ('plays'),
            ('chemist');
-
-
-
-# INSERT INTO shop.delivery(uuid, delivery_system, postcode, city, address)
-#     VALUES (uuid(), )
