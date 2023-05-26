@@ -1,5 +1,4 @@
-
-create schema shop;
+# create schema shop;
 
 use shop;
 
@@ -53,7 +52,7 @@ create table shop.delivery_systems (
 );
 
 
-create table shop.delivery (
+create table shop.deliveries (
     uuid varchar(36) PRIMARY KEY,
     delivery_system int not null,
     postcode varchar(16) not null,
@@ -77,7 +76,7 @@ create table shop.orders (
     date datetime,
     cost int,
     FOREIGN KEY (customer_id) references shop.customers(uuid),
-    FOREIGN KEY (delivery_id) references shop.delivery(uuid)
+    FOREIGN KEY (delivery_id) references shop.deliveries(uuid)
 );
 
 
@@ -130,10 +129,19 @@ create table shop.basket (
 );
 
 
-create table shop.product_basket (
+create table shop.products_basket (
     uuid varchar(36) PRIMARY KEY ,
     basket_id varchar(36),
     product_id varchar(36),
     FOREIGN KEY (basket_id) references shop.basket(uuid),
     FOREIGN KEY (product_id) references shop.products(uuid)
+);
+
+create table shop.product_reviews (
+    uuid varchar(36) PRIMARY KEY,
+    customer_id varchar(36),
+    product_id varchar(36),
+    review varchar(1024),
+    foreign key (customer_id) references shop.customers(uuid),
+    foreign key (product_id) references shop.products(uuid)
 );
