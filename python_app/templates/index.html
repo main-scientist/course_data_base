@@ -167,15 +167,4 @@
   {% if cart %}
       <ul>
           {% for item in cart %}
-              <li>{{ item.name }} - ${{ item.price }}</li>
-          {% endfor %}
-      </ul>
-      <a href="{{ url_for('clear_cart') }}">Очистить корзину</a>
-  {% else %}
-      <p>Корзина пуста</p>
-  {% endif %}
-
-
-
-</body>
-</html> 
+              <li>{{
