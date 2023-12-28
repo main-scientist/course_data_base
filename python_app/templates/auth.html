@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form method="post" action="{{ url_for('update_data') }}">
+        <label for="auth_data">Authorization</label>
+        <input type="text" name="auth_login" id="login" required>
+        <input type="text" name="auth_pass" id="pass" required>
+        <button type="submit">Enter</button>
+    </form>
+    
+  

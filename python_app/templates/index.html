@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Page</title>
     <link rel="stylesheet" href="index.css">
-    <!-- <link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.min.css"> -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
   </head>
   <body>
@@ -15,11 +14,6 @@
         <img class="sign-in" src="{{ url_for('static', filename='images/sign-in.png') }}" alt="Логотип">
         <img class="basket" src="{{ url_for('static', filename='images/basket.png') }}" alt="Логотип">
         <img class="menu" src="{{ url_for('static', filename='images/menu.svg') }}" alt="Логотип">
-
-        <!-- <img class="logo" src="images/logo.svg" alt="logo">
-        <img class="sign-in" src="images/sign-in.png">
-        <img class="basket" src="images/basket.png">
-        <img class="menu" src="images/menu.svg" alt="menu"> -->
       </div>
     </header>
 
@@ -35,13 +29,11 @@
         <div class="block__row">
           <div class="block__column">
             <img src="{{ url_for('static', filename='images/card1.png') }}" alt="Логотип">
-            <!-- <img src="images/card1.png"> -->
             <p>{{data[0][1]}}</p>
             <p>₽₽ • Бургеры</p>
             <p>25 - 35 мин</p>
           </div>
           <div class="block__column">
-            <!-- <img src="images/card2.png"> -->
             <img src="{{ url_for('static', filename='images/card2.png') }}" alt="Логотип">
             <p>{{data[1][1]}}</p>
             <p>₽ • Японская • Китайская • Азиатская</p>
@@ -58,7 +50,6 @@
         <div class="block__row">
           <div class="block__column">
             <img src="{{ url_for('static', filename='images/card4.png') }}" alt="Логотип">
-            <!-- <p>НЯ — NHA</p> -->
             <p>{{data[3][1]}}</p>
             <p>₽₽ • Вьетнамская</p>
             <p>30 - 40 мин</p>
@@ -103,7 +94,6 @@
 
 
     <footer>
-      <!-- <img src="images/white-logo.svg" alt="logo"> -->
       <img src="{{ url_for('static', filename='images/white-logo.svg') }}" alt="Логотип">
 
       <div class="info">
@@ -112,7 +102,6 @@
             <option value="">Русский</option>
           </select>
           <img src="{{ url_for('static', filename='images/social.png') }}" alt="Логотип">
-          <!-- <img src="images/social.png" alt="social"> -->
         </div>
         <div class="center">
           <p>Об UberEats</p>
@@ -130,8 +119,6 @@
       <div class="dow">
         <img class="apple" src="{{ url_for('static', filename='images/apple.png') }}" alt="Логотип">
         <img src="{{ url_for('static', filename='images/playMarket.png') }}" alt="Логотип">
-        <!-- <img class="apple" src="images/apple.png"> -->
-        <!-- <img src="images/playMarket.png"> -->
       </div>
 
       <div class="text">
@@ -146,4 +133,49 @@
     </aside>
 
   </body>
-</html>
+</html> -->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+  <h1>Магазин</h1>
+
+  <h2>Товары</h2>
+  <ul>
+      {% for object in data %}
+          <li>
+              {{ object[1] }} - ${{ object[3] }}
+              <a href="{{ url_for('add_to_cart', item_id=object[0]) }}">Добавить в корзину</a>
+          </li>
+      {% endfor %}
+  </ul>
+
+  <h2>Корзина</h2>
+  {% if cart %}
+      <ul>
+          {% for item in cart %}
+              <li>{{ item.name }} - ${{ item.price }}</li>
+          {% endfor %}
+      </ul>
+      <a href="{{ url_for('clear_cart') }}">Очистить корзину</a>
+  {% else %}
+      <p>Корзина пуста</p>
+  {% endif %}
+
+
+
+</body>
+</html> 
