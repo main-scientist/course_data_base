@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -129,53 +129,17 @@
     </footer>
 
     <aside>
-      <div><a href="#header"><img src="images/Shape.png"></a></div>
+      <div>
+        <a href="#header">
+        <img src="{{ url_for('static', filename='images/Shape.png') }}" alt="Логотип">
+      </div>
     </aside>
 
   </body>
-</html> -->
+</html>
 
 
 
 
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
-</head>
-<body>
-
-  <h1>Магазин</h1>
-
-  <h2>Товары</h2>
-  <ul>
-      {% for object in data %}
-          <li>
-              {{ object[1] }} - ${{ object[3] }}
-              <a href="{{ url_for('add_to_cart', item_id=object[0]) }}">Добавить в корзину</a>
-          </li>
-      {% endfor %}
-  </ul>
-
-  <h2>Корзина</h2>
-  {% if cart %}
-      <ul>
-          {% for item in cart %}
-              <li>{{ item.name }} - ${{ item.price }}</li>
-          {% endfor %}
-      </ul>
-      <a href="{{ url_for('clear_cart') }}">Очистить корзину</a>
-  {% else %}
-      <p>Корзина пуста</p>
-  {% endif %}
-
-
-
-</body>
-</html> 

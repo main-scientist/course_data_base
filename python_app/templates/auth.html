@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='auth.css') }}">
 </head>
 <body>
-    
-    <form method="post" action="{{ url_for('update_data') }}">
-        <label for="auth_data">Authorization</label>
-        <input type="text" name="auth_login" id="login" required>
-        <input type="text" name="auth_pass" id="pass" required>
-        <button type="submit">Enter</button>
-    </form>
-    
-    <br><br>
-    
-    <form method="post" action="{{ url_for('update_data') }}">
-        <label for="new_user_data">Are you a new user?</label>
-        <input type="checkbox" name="new_user_checkbox" id="new_user_checkbox">
-        <input type="text" name="new_user_name" id="new_user_name" required>
-        <input type="text" name="new_user_surname" id="new_user_surname" required>
-        <input type="text" name="new_user_email" id="new_user_email" required>
-        <input type="text" name="new_user_password" id="new_user_password" required>
-        <button type="submit">Enter</button>
-    </form>
 
+    <form class="form-container" method="post" action="{{ url_for('update_data') }}">
+        <label for="auth_data">Login</label>
+        <input type="text" name="auth_login" id="login" required class="form-input" placeholder="Login">
+        <input type="text" name="auth_pass" id="pass" required class="form-input"  placeholder="Password">
+        <button type="submit" class="form-button">Enter</button>
+    </form>
+    <form class="form-container" method="post" action="{{ url_for('update_data') }}">
+        <!-- <div class="tmp">
+            <label for="new_user_data">Authorization</label>
+            <input type="checkbox" name="new_user_checkbox" id="new_user_checkbox" class="form-checkbox">
+        </div> -->
+        <label for="new_user_data">Authorization</label>
+        <!-- <div class="checkbox-container">
+            <input type="checkbox" name="new_user_checkbox" id="new_user_checkbox" class="form-checkbox">
+        </div> -->
+        <input type="text" name="new_user_name" id="new_user_name" required class="form-input" placeholder="Name">
+        <input type="text" name="new_user_surname" id="new_user_surname" required class="form-input" placeholder="Surname">
+        <input type="text" name="new_user_email" id="new_user_email" required class="form-input" placeholder="Email">
+        <input type="text" name="new_user_password" id="new_user_password" required class="form-input", placeholder="Password">
+        <button type="submit" class="form-button">Enter</button>
+    </form>
 
 </body>
 </html>

@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from SQL import SQL
+import secrets
 
 sql = SQL()
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -31,38 +33,37 @@ def update_data():
             return render_template('index.html', data=data)
         
 
-# @app.route('/add_to_cart/<item_id>')
-# def add_to_cart(item_id):
-#     item = get_item_by_id(item_id)
-#     if item:
-#         if 'cart' not in session:
-#             session['cart'] = []
-#         session['cart'].append(item)
-#     # return redirect(url_for('index'))
-#     return redirect(url_for('update_data'))
+@app.route('/add_to_cart/<item_id>')
+def add_to_cart(item_id):
+    item = get_item_by_id(item_id)
+    if item:
+        if 'cart' not in session:
+            session['cart'] = []
+        session['cart'].append(item)
+    # return redirect(url_for('index'))
+    return redirect(url_for('update_data'))
 
 
-# @app.route('/clear_cart')
-# def clear_cart():
-#     session.pop('cart', None)
-#     return redirect(url_for('index'))
+@app.route('/clear_cart')
+def clear_cart():
+    session.pop('cart', None)
+    return redirect(url_for('index'))
 
 
-# def get_item_by_id(item_id):
-#     items = sql.products
-#     print(items)
-#     for item in items:
-#         if item[0] == item_id:
-#             return item
-#     return None
+def get_item_by_id(item_id):
+    items = sql.products
+    print(items)
+    for item in items:
+        if item[0] == item_id:
+            return item
+    return None
 
-# def get_cart():
-#     return session.get('cart', [])
+def get_cart():
+    return session.get('cart', [])
     
 
 
 
-
-
 if __name__ == '__main__':
+    app.secret_key = secrets.token_hex(16)
     app.run(debug=True)
