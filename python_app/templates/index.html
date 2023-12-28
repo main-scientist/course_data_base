@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Page</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+  </head>
+  <body>
+
+    <header>
+      <div id="header">
+        <img class="logo" src="{{ url_for('static', filename='images/logo.svg') }}" alt="Логотип">
+        <img class="sign-in" src="{{ url_for('static', filename='images/sign-in.png') }}" alt="Логотип">
+        <img class="basket" src="{{ url_for('static', filename='images/basket.png') }}" alt="Логотип">
+        <img class="menu" src="{{ url_for('static', filename='images/menu.svg') }}" alt="Логотип">
+
+        <!-- <img class="logo" src="images/logo.svg" alt="logo">
+        <img class="sign-in" src="images/sign-in.png">
+        <img class="basket" src="images/basket.png">
+        <img class="menu" src="images/menu.svg" alt="menu"> -->
+      </div>
+    </header>
+
+
+    <main>
+      <section class="block__search">
+        <input type="search" placeholder="Поиск по ресторанам и кухням">
+      </section>
+
+      <section class="block__content">
+        <h2>Рестораны в Москве</h2>
+
+        <div class="block__row">
+          <div class="block__column">
+            <img src="{{ url_for('static', filename='images/card1.png') }}" alt="Логотип">
+            <!-- <img src="images/card1.png"> -->
+            <p>{{data[0][1]}}</p>
+            <p>₽₽ • Бургеры</p>
+            <p>25 - 35 мин</p>
+          </div>
+          <div class="block__column">
+            <!-- <img src="images/card2.png"> -->
+            <img src="{{ url_for('static', filename='images/card2.png') }}" alt="Логотип">
+            <p>{{data[1][1]}}</p>
+            <p>₽ • Японская • Китайская • Азиатская</p>
+            <p>40 - 50 мин</p>
+          </div>
+          <div class="block__column">
+            <img src="{{ url_for('static', filename='images/card3.png') }}" alt="Логотип">
+            <p>{{data[2][1]}}</p>
+            <p>₽ • Американская • Европейская</p>
+            <p>35 - 45 мин</p>
+          </div>          
+        </div>
+
+        <div class="block__row">
+          <div class="block__column">
+            <img src="{{ url_for('static', filename='images/card4.png') }}" alt="Логотип">
+            <!-- <p>НЯ — NHA</p> -->
+            <p>{{data[3][1]}}</p>
+            <p>₽₽ • Вьетнамская</p>
+            <p>30 - 40 мин</p>
+          </div>
+          <div class="block__column">
+            <img src="{{ url_for('static', filename='images/card5.png') }}" alt="Логотип">
+            <p>{{data[4][1]}}</p>
+            <p>₽ • Выпечка • Десерты • Капкейки</p>
+            <p>35 - 45 мин</p>
+          </div>
+          <div class="block__column">
+            <img src="{{ url_for('static', filename='images/card6.png') }}" alt="Логотип">
+            <p>{{data[5][1]}}</p>
+            <p>₽₽ • Вьетнамская</p>
+            <p>35 - 45 мин</p>
+          </div>
+        </div>
+
+        <div class="block__row">
+          <div class="block__column">
+            <img src="{{ url_for('static', filename='images/card7.png') }}" alt="Логотип">
+            <p>{{data[6][1]}}</p>
+            <p>₽₽ • Вьетнамская</p>
+            <p>30 - 40 мин</p>
+          </div>
+          <div class="block__column">
+            <img src="{{ url_for('static', filename='images/card8.png') }}" alt="Логотип">
+            <p>{{data[7][1]}}</p>
+            <p>₽ • Выпечка • Десерты • Капкейки</p>
+            <p>35 - 45 мин</p>
+          </div>
+          <div class="block__column">
+            <img src="{{ url_for('static', filename='images/card9.png') }}" alt="Логотип">
+            <p>{{data[8][1]}}</p>
+            <p>₽₽ • Вьетнамская</p>
+            <p>35 - 45 мин</p>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+
+    <footer>
+      <!-- <img src="images/white-logo.svg" alt="logo"> -->
+      <img src="{{ url_for('static', filename='images/white-logo.svg') }}" alt="Логотип">
+
+      <div class="info">
+        <div class="left">
+          <select>
+            <option value="">Русский</option>
+          </select>
+          <img src="{{ url_for('static', filename='images/social.png') }}" alt="Логотип">
+          <!-- <img src="images/social.png" alt="social"> -->
+        </div>
+        <div class="center">
+          <p>Об UberEats</p>
+          <p>Станьте партнёром по доставке</p>
+          <p>Станьте парнёром-рестораном</p>
+        </div>
+        <div class="right">
+          <p>Все города</p>
+          <p>Цены</p>
+          <p>Помощь</p>
+          <p>FAQs</p>
+        </div>
+      </div>
+
+      <div class="dow">
+        <img class="apple" src="{{ url_for('static', filename='images/apple.png') }}" alt="Логотип">
+        <img src="{{ url_for('static', filename='images/playMarket.png') }}" alt="Логотип">
+        <!-- <img class="apple" src="images/apple.png"> -->
+        <!-- <img src="images/playMarket.png"> -->
+      </div>
+
+      <div class="text">
+        <span>© 2017 Uber Technologies Inc.</span>
+        <span>Обработка персональных данных</span>
+        <span>Пользовательское соглашение</span>
+      </div>
+    </footer>
+
+    <aside>
+      <div><a href="#header"><img src="images/Shape.png"></a></div>
+    </aside>
+
+  </body>
+</html>

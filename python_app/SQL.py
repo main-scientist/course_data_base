@@ -8,7 +8,6 @@ config = {
     'raise_on_warnings': True
 }
 
-
 class SQL:
     def __init__(self):
         self.connection = None
@@ -27,9 +26,9 @@ class SQL:
         query = f'SELECT * FROM {table_name};'
         cursor.execute(query)
         data = cursor.fetchall()
-        print(data)
         cursor.close()
         self.disconnect()
+        return data
 
     def disconnect(self):
         self.connection.close()

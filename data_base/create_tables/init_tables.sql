@@ -1,4 +1,4 @@
-# create schema shop;
+create schema shop;
 
 use shop;
 
